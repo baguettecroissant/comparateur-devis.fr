@@ -5,7 +5,7 @@ import { getCategoryContent } from '@/lib/category-content';
 import Link from 'next/link';
 import { MobileStickyCta } from "@/components/ui/MobileStickyCta";
 import { Metadata } from 'next';
-import { Map as MapIcon, ChevronRight, Clock, ShieldCheck, Star, Siren, Euro, FileText, Search, ArrowRight, HelpCircle, CheckCircle, Lightbulb, MapPin, Wrench, ExternalLink } from 'lucide-react';
+import { Map as MapIcon, ChevronRight, Clock, ShieldCheck, Star, Siren, Euro, FileText, Search, ArrowRight, HelpCircle, CheckCircle, Lightbulb, MapPin, Wrench, ExternalLink, Briefcase, ThumbsUp, CheckSquare, Award } from 'lucide-react';
 
 const TOP_CITIES = [
     { name: "Paris", slug: "paris-1er-arrondissement-75001" },
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     
     if (!category) return {};
     
-    const content = getCategoryContent(category.slug);
+    const content = getCategoryContent(category.slug, category.name);
 
     return {
         title: `${category.name} : comparez les professionnels 2026 | Comparateur Devis`,
@@ -51,7 +51,7 @@ export default async function CategoryAnnuairePage({ params }: Props) {
 
     if (!category) notFound();
 
-    const content = getCategoryContent(category.slug);
+    const content = getCategoryContent(category.slug, category.name);
     const departments = getAllDepartments();
     const regions = getRegions();
     const allCategories = getAllCategories();
@@ -215,6 +215,70 @@ export default async function CategoryAnnuairePage({ params }: Props) {
                         </p>
                     </div>
                 </section>
+
+                {/* ===== NOUVELLE SECTION : Domaines d'intervention ===== */}
+                {content.services && content.services.length > 0 && (
+                    <section className="py-12 border-b border-slate-100">
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="bg-blue-50 p-3 rounded-xl">
+                                <Briefcase className="h-6 w-6 text-blue-600" />
+                            </div>
+                            <h2 className="text-2xl font-bold text-slate-900">Vos travaux de {category.name.toLowerCase()} : domaines d'intervention</h2>
+                        </div>
+                        <div className="grid sm:grid-cols-2 gap-4">
+                            {content.services.map((service, i) => (
+                                <div key={i} className="bg-white rounded-xl p-5 border border-slate-100 shadow-sm hover:border-blue-200 transition-colors">
+                                    <h3 className="font-bold text-slate-800 mb-2 truncate">{service.title}</h3>
+                                    <p className="text-slate-600 leading-relaxed text-sm">{service.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* ===== NOUVELLE SECTION : Pourquoi faire appel à un pro / Garantie ===== */}
+                {content.whyHirePro && (
+                    <section className="py-12 border-b border-slate-100 bg-slate-50 -mx-4 px-4 sm:mx-0 sm:px-0 sm:bg-transparent">
+                        <div className="sm:bg-slate-50 sm:p-8 sm:rounded-2xl sm:border sm:border-slate-100">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="bg-orange-50 p-3 rounded-xl">
+                                    <ThumbsUp className="h-6 w-6 text-orange-600" />
+                                </div>
+                                <h2 className="text-2xl font-bold text-slate-900">{content.whyHirePro.title}</h2>
+                            </div>
+                            <div className="space-y-4">
+                                {content.whyHirePro.points.map((point, i) => (
+                                    <div key={i} className="flex gap-4">
+                                        <div className="shrink-0 mt-1">
+                                            <CheckSquare className="h-5 w-5 text-emerald-500" />
+                                        </div>
+                                        <p className="text-slate-700 leading-relaxed">{point}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* ===== NOUVELLE SECTION : Certifications ===== */}
+                {content.certifications && content.certifications.length > 0 && (
+                    <section className="py-12 border-b border-slate-100">
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="bg-amber-50 p-3 rounded-xl">
+                                <Award className="h-6 w-6 text-amber-600" />
+                            </div>
+                            <h2 className="text-2xl font-bold text-slate-900">Quelles certifications exiger pour vos travaux de {category.name.toLowerCase()} ?</h2>
+                        </div>
+                        <div className="flex flex-wrap gap-3">
+                            {content.certifications.map((cert, i) => (
+                                <div key={i} className="flex items-center gap-2 bg-white border border-slate-200 px-4 py-2 rounded-full text-sm font-medium text-slate-700 shadow-sm">
+                                    <ShieldCheck className="h-4 w-4 text-emerald-500" />
+                                    {cert}
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
 
                 {/* ===== Section 2 : Conseils ===== */}
                 {content.tips.length > 0 && (
