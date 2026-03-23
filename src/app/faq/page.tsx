@@ -27,7 +27,7 @@ interface FAQCategory {
 
 const faqCategories: FAQCategory[] = [
     {
-        title: "Le Comparateur",
+        title: "Le Comparateur & Les Devis",
         icon: "💡",
         items: [
             {
@@ -46,6 +46,18 @@ const faqCategories: FAQCategory[] = [
                 question: "Suis-je obligé de signer avec l'un de vos artisans ?",
                 answer: "Absolument pas. Vous recevez jusqu'à 3 devis pour comparer, et vous restez totalement libre d'accepter l'une des offres ou de les refuser toutes.",
             },
+            {
+                question: "Mes données personnelles sont-elles protégées ?",
+                answer: "Oui, la sécurité de vos données est notre priorité. Vos informations personnelles ne sont transmises qu'à un maximum de 3 artisans qualifiés de votre région, uniquement dans le but de répondre à votre demande de devis. Elles ne sont pas revendues à des tiers pour du démarchage publicitaire.",
+            },
+            {
+                question: "Comment bien comparer plusieurs devis d'artisans ?",
+                answer: "Pour bien comparer, vérifiez que chaque professionnel a chiffré exactement les mêmes prestations (fournitures identiques, temps de main-d'œuvre). Assurez-vous aussi que le numéro SIRET, les dates de validité du devis et l'assurance décennale figurent bien sur le document.",
+            },
+            {
+                question: "Puis-je annuler ma demande de devis en cours ?",
+                answer: "Tant que vous n'avez pas signé et renvoyé le devis d'un artisan avec la mention 'Bon pour accord', vous n'avez aucun engagement. Si l'artisan vous contacte, il suffit de lui préciser que votre projet est annulé ou reporté.",
+            }
         ],
     },
     {
@@ -60,13 +72,25 @@ const faqCategories: FAQCategory[] = [
                 ]
             },
             {
+                question: "Quelle puissance choisir pour ma pompe à chaleur ?",
+                answer: "La puissance s'évalue en kilowatts (kW) après un bilan thermique strict de votre logement. Il dépend de la surface à chauffer, de la qualité de votre isolation, de la hauteur sous plafond et de votre zone climatique. Sous-dimensionnée, elle peinera l'hiver. Sur-dimensionnée, elle s'usera prématurément.",
+            },
+            {
                 question: "Ma maison est-elle compatible avec une chaudière à granulés ?",
                 answer: "Oui, si vous disposez d'un circuit de chauffage central préexistant (radiateurs à eau ou plancher chauffant) et d'un espace au sec suffisamment grand pour installer le silo à granulés. C'est un système de biomasse très soutenu par les aides de l'État.",
             },
             {
-                question: "Faut-il entretenir sa climatisation réversible (PAC Air-Air) ?",
-                answer: "Oui, le nettoyage des filtres doit être fait régulièrement par vous-même. Mais légalement, l'entretien du circuit frigorifique par un frigoriste certifié est obligatoire tous les deux ans pour s'assurer qu'il n'y a aucune fuite toxique.",
+                question: "Le plancher chauffant est-il compatible avec une pompe à chaleur ?",
+                answer: "C'est même le couplage idéal ! Le plancher chauffant fonctionnant à basse température (inférieure à 35°C), il optimise drastiquement le rendement (COP) de la pompe à chaleur air-eau ou géothermique.",
             },
+            {
+                question: "Faut-il entretenir sa climatisation réversible (PAC Air-Air) ?",
+                answer: "Oui, le nettoyage des filtres doit être fait régulièrement par vous-même. Mais légalement, l'entretien du circuit frigorifique par un frigoriste certifié (attestation de manipulation des fluides) est obligatoire tous les deux ans pour s'assurer qu'il n'y a aucune fuite toxique.",
+            },
+            {
+                question: "Quelle est la durée de vie moyenne d'une pompe à chaleur ?",
+                answer: "Avec un entretien annuel rigoureux (vérification du compresseur, gaz frigorifique), une pompe à chaleur moderne de bonne marque (Daikin, Mitsubishi, Atlantic) a une durée de vie comprise entre 15 et 20 ans.",
+            }
         ]
     },
     {
@@ -84,6 +108,18 @@ const faqCategories: FAQCategory[] = [
                 question: "Quel est le meilleur isolant pour des combles perdus ?",
                 answer: "La technique du soufflage en utilisant de la laine de verre ou de roche reste le rapport qualité-prix numéro 1 en France. Pour des projets plus écologiques avec un meilleur confort estival (pour éviter les coups de chaud l'été), la ouate de cellulose projetée ou la fibre de bois sont d'excellentes alternatives très performantes.",
             },
+            {
+                question: "Faut-il isoler la toiture par l'intérieur ou par l'extérieur (Sarking) ?",
+                answer: "L'isolation par l'intérieur sous rampants est idéale lors de l'aménagement des combles. L'isolation par l'extérieur (technique du Sarking) est fortement recommandée si vous devez en profiter pour refaire entièrement la couverture du toit (tuiles, ardoises), préservant ainsi le volume et les poutres apparentes à l'intérieur.",
+            },
+            {
+                question: "L'isolation phonique (bruit) est-elle incluse dans les travaux thermiques ?",
+                answer: "Oui et non. Certains isolants thermiques comme la laine de roche, la ouate de cellulose ou la fibre de bois ont d'excellentes propriétés acoustiques naturelles. Les isolants rigides comme le polyuréthane stoppent le froid mais résonnent face au bruit.",
+            },
+            {
+                question: "Peut-on bénéficier d'aides pour l'isolation d'un sous-sol ou vide sanitaire ?",
+                answer: "Oui, l'isolation des planchers bas reste éligible à la prime CEE (Certificats d'Économie d'Énergie) selon certains barèmes conditionnels. C'est l'un des gestes prioritaires pour couper court aux sensations de 'froid aux pieds' en hiver.",
+            }
         ]
     },
     {
@@ -101,6 +137,18 @@ const faqCategories: FAQCategory[] = [
                 question: "Le double vitrage donne-t-il droit à des subventions ?",
                 answer: "Oui, mais sous des conditions précises. Principalement lorsque vous remplacez de très vieilles fenêtres en survitrage fragile ou 'simple vitrage' directement par des menuiseries double ou triple vitrage très isolantes. C'est éligible au parcours par gestes de MaPrimeRénov'.",
             },
+            {
+                question: "Qu'est-ce que le coefficient Uw pour l'isolation des fenêtres ?",
+                answer: "C'est l'indicateur universel de la performance de déperdition thermique totale d'une fenêtre (vitre + cadre). Plus le chiffre Uw est bas, plus la fenêtre est isolante. Pour percevoir des aides, les fenêtres posées doivent généralement avoir un coefficient Uw ≤ 1,3 W/m².K.",
+            },
+            {
+                question: "Faut-il des autorisations préalables pour changer mes fenêtres ?",
+                answer: "Si vous optez pour le même visuel et la même couleur, aucune autorisation de la mairie n'est requise. Si vous changez le type d'ouverture (ex: passage à des volets roulants, changement de couleur des menuiseries ou de matériau), vous devez impérativement déposer une Déclaration Préalable de Travaux (DP).",
+            },
+            {
+                question: "C'est quoi un vitrage anti-effraction SP10 ?",
+                answer: "C'est un double ou triple vitrage dont l'une des vitres est constituée d'un feuilletage épais (deux plaques de verre collées par plusieurs films adhésifs invisibles super-résistants). Il ralentit considérablement l'intrusion (plusieurs minutes de coups de marteau requis sans éclater) et met en fuite les cambrioleurs.",
+            }
         ]
     },
     {
@@ -116,8 +164,20 @@ const faqCategories: FAQCategory[] = [
             },
             {
                 question: "Existe-t-il des subventions pour transformer sa salle de bain (séniors) ?",
-                answer: "Oui absolue. L'aide d'État 'MaPrimeAdapt' peut aujourd'hui prendre en charge de 50% à 70% de la facture HT des travaux engagés pour les personnes en perte d'autonomie ou handicapées (pose de receveur extra-plat PMR, siège rabattable, barres de préhension ergonomiques).",
+                answer: "Oui, et c'est majeur. L'aide d'État 'MaPrimeAdapt' peut aujourd'hui prendre en charge de 50% à 70% de la facture HT des travaux engagés pour les personnes en perte d'autonomie ou handicapées (pose de receveur extra-plat PMR, siège rabattable, barres de préhension ergonomiques).",
             },
+            {
+                question: "Combien de temps dure la rénovation complète d'une petite salle de bain ?",
+                answer: "En général, si c'est géré par un artisan global ou une entreprise 'tous corps d'états', un chantier complet (démolition, réseaux, carrelage, finitions) prend entre une et deux semaines complètes, notamment à cause des temps de séchage obligatoires des chapes, des étanchéités (SPEC) et joints.",
+            },
+            {
+                question: "Faut-il une cabine, un bac 'extra-plat' ou une 'vraie' italienne ?",
+                answer: "Les receveurs extra-plats modernes (résine minérale de 3cm d'épaisseur) offrent les mêmes atouts esthétiques qu'une vraie douche italienne de plain-pied, tout en éliminant 90% des risques dramatiques de fuites encastrées dans la dalle. Ils sont idéaux pour les rénovations.",
+            },
+            {
+                question: "Sénior : suis-je obligé d'installer une douche ?",
+                answer: "Si vous souhaitez conserver les aides (MaPrimeAdapt), la baignoire avec porte ou baignoire sabot permet aux séniors de continuer à prendre des bains tout en sécurisant grandement l'enjambement et les transferts d'assise.",
+            }
         ]
     },
     {
@@ -126,18 +186,30 @@ const faqCategories: FAQCategory[] = [
         items: [
             {
                 question: "Qu'est-ce qu'une vraie mise aux normes électriques (NF C 15-100) ?",
-                answer: "Le label sécuritaire et normatif NF C 15-100 encadre toutes les installations et rénovations en France : il oblige absolument l'artisan à poser un tableau à disjoncteurs modernes incluant des 'différentiels 30mA' de têtes, d'emmener un câble de masse à la terre sur chaque prise du foyer et de créer des lignes spécialisées en cuisine et de calibrer parfaitement la section de fil utilisé selon la puissance de raccord.",
+                answer: "Le label sécuritaire et normatif NF C 15-100 encadre toutes les installations et rénovations en France : il oblige absolument l'artisan à poser un tableau à disjoncteurs modernes incluant des 'différentiels 30mA' de protection humaine, de raccorder chaque prise de la maison à la prise de terre du jardin, et de créer des lignes spécialisées protégées pour le gros électroménager.",
                 links: [
                     { text: "Prix rénovation électrique totale", href: "/guides/renovation-electrique-normes-prix" }
                 ]
             },
             {
-                question: "Doit-on quitter son domicile pendant une rénovation globale ?",
-                answer: "Tout dépend de la nature profonde du chantier. L'installation d'une cloison sèche (placoplatre) ou le changement de fenêtres vous autorise à rester. Mais lors d'une 'Rénovation de la moelle' globale (Destruction des sols, changement complet de l'assainissement ou des tuiles d'une toiture à découvert et électricité apparente) il est largement déconseillé d'habiter dans la maison pendant ces grosses manœuvres des artisans pour des raisons de confort (coupures d'eau/courant intempestives, fortes poussières et bruit infernal à midi).",
+                question: "Qu'est-ce qu'une attestation Consuel et quand est-elle obligatoire ?",
+                answer: "Le certificat de l'organisme rattaché CONSUEL est le visa de conformité final de l'État qui atteste que les électriciens ont respecté les normes. Il est rendu légalement obligatoire en cas de création de maison, ou de rénovation impliquant la mise hors tension intégrale d'un compteur ENEDIS pour rétablissement du courant.",
+            },
+            {
+                question: "Faut-il passer par un architecte / maître d'œuvre pour mon chantier ?",
+                answer: "Pour les rénovations ne modifiant pas les volumes et en dessous de 150m², une entreprise de contractants généraux suffit amplement. L'architecte est obligatoire dès que vous procédez à une extension modifiant la façade et dépassant 150m² de surface de plancher totale habitable.",
                 links: [
                     { text: "Guide : Bien choisir son artisan", href: "/guides/comment-choisir-artisan-renovation-globale" }
                 ]
             },
+            {
+                question: "Doit-on quitter son domicile pendant une rénovation globale ?",
+                answer: "Tout dépend de l'étendue des travaux. L'aménagement de combles ou du changement de menuiseries vous autorise à rester. Mais lors d'une rénovation de fond en comble (casses des sols, révision totale de la décharge plomberie avec évacuation à ciel ouvert, bruits constants des perceuses électriques à 8h) il est vivement conseillé d'habiter ailleurs pour alléger votre moral et libérer la voie aux entreprises.",
+            },
+            {
+                question: "Peut-on faire réaliser un audit énergétique réglementaire avant de faire des travaux ?",
+                answer: "Oui, c'est même obligatoire lors de la vente d'une maison d'étiquette énergie F ou G. Pour des travaux pour soi, l'audit est la première étape du parcours accompagné MaPrimeRénov' pour obtenir le meilleur taux d'aides. Mon Accompagnateur Rénov' se chargera ensuite du planning des priorités (Isolation d'abord, Chauffage ensuite).",
+            }
         ]
     }
 ];
