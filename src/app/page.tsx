@@ -5,6 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CategoriesGrid } from "@/components/features/CategoriesGrid";
 import { MobileStickyCta } from "@/components/ui/MobileStickyCta";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: 'Comparateur de Devis Artisan | Obtenez jusqu\'à 3 devis gratuits',
@@ -162,17 +163,34 @@ export default function Home() {
             </div>
 
             <div className="lg:w-1/2 w-full">
-                <div className="grid grid-cols-2 gap-4 relative">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-orange-400 to-amber-300 rounded-[2rem] transform rotate-3 scale-105 opacity-20 -z-10 blur-xl"></div>
-                    <div className="bg-slate-900 text-white p-8 rounded-[2rem] aspect-square flex flex-col justify-end shadow-xl">
-                        <Hammer className="w-10 h-10 text-orange-400 mb-4" />
-                        <div className="text-4xl font-extrabold mb-2">150+</div>
-                        <div className="text-slate-400 text-sm">Catégories de travaux référencées en France</div>
+                <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-orange-400 to-amber-300 rounded-[2rem] transform rotate-3 scale-102 opacity-20 -z-10 blur-xl"></div>
+                    <Image
+                        src="/images/about-team.png"
+                        alt="Notre équipe d'experts et artisans partenaires"
+                        width={600}
+                        height={600}
+                        className="rounded-[2rem] shadow-2xl object-cover w-full aspect-square"
+                    />
+                    
+                    {/* Floating badges */}
+                    <div className="absolute -bottom-6 -left-2 sm:-left-6 bg-white p-4 sm:p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 sm:gap-4">
+                        <div className="bg-orange-100 text-orange-600 p-2 sm:p-3 rounded-full">
+                            <Hammer className="w-5 h-5 sm:w-6 sm:h-6" />
+                        </div>
+                        <div>
+                            <div className="text-xl sm:text-2xl font-extrabold text-slate-900">150+</div>
+                            <div className="text-slate-500 text-xs sm:text-sm">Métiers couverts</div>
+                        </div>
                     </div>
-                    <div className="bg-white border border-slate-100 p-8 rounded-[2rem] aspect-square flex flex-col justify-end shadow-xl mt-12">
-                        <MapPin className="w-10 h-10 text-blue-500 mb-4" />
-                        <div className="text-4xl font-extrabold text-slate-900 mb-2">35k</div>
-                        <div className="text-slate-500 text-sm">Villes et villages couverts par nos artisans</div>
+                    <div className="absolute -top-6 -right-2 sm:-right-6 bg-slate-900 p-4 sm:p-6 rounded-2xl shadow-xl flex items-center gap-3 sm:gap-4">
+                        <div className="bg-blue-900/50 text-blue-400 p-2 sm:p-3 rounded-full">
+                            <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
+                        </div>
+                        <div>
+                            <div className="text-xl sm:text-2xl font-extrabold text-white">35k</div>
+                            <div className="text-slate-400 text-xs sm:text-sm">Communes</div>
+                        </div>
                     </div>
                 </div>
             </div>

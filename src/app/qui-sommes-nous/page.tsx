@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ShieldCheck, Target, Users, MapPin, Wrench, ArrowRight, Award, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
     title: "Qui Sommes-Nous ? | Comparateur-Devis.fr",
@@ -59,7 +60,18 @@ export default function QuiSommesNousPage() {
                     
                     {/* Left Body */}
                     <div className="md:col-span-2 prose prose-lg prose-slate max-w-none">
-                        <h2 className="text-3xl font-bold text-slate-900 mb-6">Notre Histoire et notre Vision</h2>
+                        <div className="mb-10 rounded-3xl overflow-hidden shadow-2xl relative">
+                            <Image 
+                                src="/images/about-team.png" 
+                                alt="L'équipe Comparateur-Devis et ses artisans partenaires" 
+                                width={800} 
+                                height={400} 
+                                className="w-full h-[400px] object-cover m-0"
+                            />
+                            <div className="absolute inset-0 border-4 border-white/10 rounded-3xl mix-blend-overlay pointer-events-none"></div>
+                        </div>
+
+                        <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-0">Notre Histoire et notre Vision</h2>
                         <p>
                             Lancé par des passionnés du web et de l'habitat, <strong>Comparateur-Devis.fr</strong> est né d'un constat partagé par de nombreux Français : il est souvent difficile de trouver le bon artisan, de vérifier ses qualifications, et surtout, d'être sûr de payer le <em>juste prix</em>.
                         </p>
