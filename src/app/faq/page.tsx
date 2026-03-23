@@ -260,7 +260,7 @@ export default function FAQPage() {
             </section>
 
             {/* Quick Nav */}
-            <section className="py-8 bg-white border-b border-slate-200 sticky top-16 z-40 shadow-sm">
+            <section className="py-8 bg-white border-b border-slate-200 shadow-sm">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-wrap justify-center gap-2">
                         {faqCategories.map((cat) => (
