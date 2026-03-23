@@ -1,0 +1,155 @@
+  	#46	Abattage d'arbres	32%	34%	5.6€	13€
+ 	#91	Abris de jardin	40%	16%	6.1€	13€
+Picto star	#107	Abris de piscine	58%	50%	15.1€	16€
+Picto star	#154	Adoucisseur d'eau	46%	60%	8.6€	16€
+ 	#33	Alarme	57%	50%	8.6€	20€
+ 	#34	Alarme incendie	Statistiques indisponibles	9€
+ 	#138	Allées et chemins	37%	50%	9.5€	16€
+ 	#121	Aménagement de placard	13%	25%	2.8€	12€
+Picto star	#75	Aménagement des combles	30%	36%	15.1€	31€
+ 	#32	Antenne TV	1%	32%	2.4€	12€
+ 	#1	Architecte - construction de maison	19%	22%	3.4€	10€
+ 	#78	Architecture d'intèrieur	2%	12%	4.3€	16€
+ 	#48	Arrosage automatique	Statistiques indisponibles	10€
+Picto star	#134	Ascenseur	92%	57%	11.1€	12€
+ 	#21	Aspiration centralisée	Statistiques indisponibles	7€
+ 	#172	Assurance emprunteur	Statistiques indisponibles	0€
+ 	#56	Audit d'amiante / plomb	1%	12%	1€	10€
+ 	#109	Automatisme d'éclairage	5%	22%	4€	14€
+Picto star	#155	Baignoire à porte	50%	67%	12€	18€
+ 	#102	Bardage	24%	24%	7.2€	15€
+ 	#127	Béton ciré	21%	37%	5.8€	12€
+ 	#126	Câblage informatique	17%	20%	5.3€	13€
+ 	#25	Carrelage	29%	30%	6.4€	18€
+ 	#146	Changement de vitre	35%	34%	6.4€	13€
+ 	#8	Charpente	33%	23%	8.7€	16€
+ 	#64	Chaudière bois - granulés	77%	0%	12.5€	23€
+ 	#88	Chaudière fioul	Statistiques indisponibles	15€
+ 	#65	Chaudière gaz	36%	27%	7.7€	23€
+ 	#156	Chauffage	59%	18%	9.7€	13€
+ 	#15	Chauffage électrique	89%	8%	13€	13€
+Picto star	#93	Chauffage géothermique	87%	50%	15.3€	23€
+ 	#152	Chauffage piscine	Statistiques indisponibles	20€
+Picto star	#86	Chauffage solaire	Statistiques indisponibles	13€
+ 	#139	Chauffe-eau	78%	50%	9.6€	15€
+ 	#42	Chauffe-eau solaire	Statistiques indisponibles	15€
+Picto star	#104	Chauffe-eau thermodynamique	53%	41%	14.4€	27€
+ 	#130	Chemin d'accès	10%	80%	3€	13€
+ 	#18	Cheminée	7%	4%	9.5€	14€
+Picto star	#19	Climatisation	97%	51%	18.5€	39€
+ 	#11	Cloison	45%	31%	7.9€	16€
+ 	#94	Clôture	13%	29%	6€	20€
+ 	#4	Constructeur de maisons	99%	29%	6.1€	12€
+ 	#6	Construction	100%	27%	6.9€	13€
+ 	#132	Construction garage	32%	39%	7.4€	20€
+ 	#80	Couverture	9%	18%	12.2€	250€
+ 	#76	Création dressing	70%	0%	6€	12€
+ 	#22	Cuisine	65%	46%	6.4€	16€
+ 	#31	Décorateur	Statistiques indisponibles	16€
+ 	#81	Décrassage ou démoussage de toiture	95%	50%	7.2€	23€
+ 	#145	Déménagement	11%	50%	3€	66€
+ 	#123	Démolition	13%	22%	6.2€	15€
+ 	#171	Dépannage pompe à chaleur / climatisation	42%	50%	4.5€	12€
+ 	#173	Dommage ouvrage	Statistiques indisponibles	0€
+ 	#69	Domotique	Statistiques indisponibles	13€
+Picto star	#131	Douche à l'italienne	86%	57%	10€	18€
+Picto star	#160	Douche sénior	98%	57%	9.9€	25€
+ 	#148	DPE	0%	16%	1€	12€
+ 	#122	Ebéniste	Statistiques indisponibles	10€
+ 	#125	Eclairage	Statistiques indisponibles	14€
+ 	#90	Elagage - taille d'arbre	27%	23%	5.4€	13€
+ 	#13	Electricité (Travaux électriques)	29%	27%	9.1€	18€
+ 	#97	Enrobée	18%	35%	3.2€	16€
+ 	#87	Entretien chaudière	16%	21%	1.4€	13€
+ 	#54	Entretien jardin	19%	29%	4.6€	16€
+ 	#55	Entretien piscine	Statistiques indisponibles	12€
+Picto star	#162	Entretien pompe à chaleur	75%	44%	16.4€	12€
+ 	#117	Equipement piscine	57%	51%	3.8€	14€
+ 	#16	Escalier	19%	31%	6.2€	16€
+ 	#83	Etanchéité toit terrasse	10%	24%	11.6€	17€
+ 	#163	Etude de sol	0%	0%	0€	7€
+ 	#105	Etude thermique	31%	18%	6.5€	13€
+ 	#124	Expert en bâtiment	3%	23%	4€	8€
+ 	#5	Extension de maison	43%	25%	10.7€	16€
+Picto star	#62	Facades - enduits	91%	41%	12.8€	25€
+ 	#77	Faux plafonds - plafonds tendus	64%	53%	8.6€	13€
+Picto star	#72	Fenêtre	91%	43%	17.3€	25€
+ 	#118	Fondations	Statistiques indisponibles	15€
+ 	#115	Garde corps	22%	19%	2.5€	10€
+ 	#151	Gazon	1%	17%	3€	10€
+ 	#150	Géomètre	19%	33%	1€	6€
+ 	#129	Home cinéma	Statistiques indisponibles	8€
+ 	#73	Interphone	7%	33%	4.8€	13€
+ 	#12	Isolation	70%	13%	11.9€	25€
+Picto star	#153	Isolation des combles	66%	38%	17.9€	45€
+Picto star	#103	Isolation par l'exterieur	95%	47%	15.8€	33€
+ 	#157	Isolation phonique	31%	40%	9€	13€
+ 	#111	Lambris	Statistiques indisponibles	13€
+ 	#112	Linos	50%	0%	3€	13€
+ 	#7	Maçonnerie	75%	57%	8€	16€
+ 	#60	Maison bois	98%	44%	6€	13€
+ 	#2	Maître d'oeuvre	96%	40%	6€	13€
+Picto star	#10	Menuiserie	89%	53%	15.5€	25€
+ 	#120	Mezzanine	31%	43%	10.5€	16€
+ 	#106	Micro station d'épuration	11%	43%	5.8€	12€
+Picto star	#144	Monte escalier	97%	57%	53€	63€
+ 	#113	Moquette	Statistiques indisponibles	16€
+ 	#50	Motorisation pour fermeture de portes et portails	83%	52%	6.8€	16€
+Picto star	#37	Panneaux photovoltaïques	94%	30%	20.6€	33€
+ 	#26	Parquet	52%	32%	6.8€	25€
+ 	#47	Paysagiste	34%	70%	5.2€	16€
+Picto star	#28	Peinture	91%	49%	12.9€	25€
+ 	#133	Pergola - carport	45%	42%	6.4€	23€
+ 	#3	Permis de construire	Statistiques indisponibles	10€
+ 	#41	Petites éoliennes	Statistiques indisponibles	12€
+Picto star	#44	Piscine	67%	68%	7.6€	25€
+Picto star	#63	Piscine coque	94%	94%	7.9€	20€
+Picto star	#159	Piscine en dur	96%	85%	7.9€	25€
+Picto star	#92	Piscine en kit	86%	100%	7.1€	20€
+ 	#79	Plan de maison	Statistiques indisponibles	11€
+ 	#89	Plancher chauffant (eau chaude)	Statistiques indisponibles	18€
+ 	#68	Plancher chauffant rayonnant	0%	6%	3€	13€
+ 	#14	Plomberie	65%	58%	7.7€	16€
+ 	#70	Poele	42%	26%	8.7€	14€
+Picto star	#36	Pompe à chaleur	87%	78%	16.8€	36€
+Picto star	#40	Pompe à chaleur air/air	95%	32%	16.3€	39€
+Picto star	#158	Pompe à chaleur air/eau	97%	41%	19.7€	36€
+ 	#71	Portail	47%	35%	9.6€	24€
+Picto star	#96	Porte blindée	35%	33%	16.4€	45€
+Picto star	#128	Porte d'entrée	61%	39%	13.4€	20€
+ 	#108	Porte de garage	65%	16%	7.5€	20€
+ 	#137	Portes intérieures	62%	46%	7.6€	13€
+Picto star	#164	Pose de borne de recharge	100%	58%	11.6€	52€
+ 	#84	Pose de gouttières	55%	56%	6.9€	17€
+ 	#167	Pose de prise de recharge	28%	35%	6.6€	14€
+ 	#169	Punaise de lit	Statistiques indisponibles	3€
+ 	#136	Ragréage	33%	57%	6.8€	16€
+ 	#53	Ramonage	7%	0%	0€	16€
+ 	#43	Récupération des eaux de pluie	8%	0%	0€	10€
+ 	#66	Rénovation	2%	75%	4.9€	21€
+Picto star	#170	Rénovation énergétique	Statistiques indisponibles	25€
+ 	#20	Rénovation intérieure	83%	24%	13€	36€
+ 	#23	Salles de bains	30%	29%	10.5€	19€
+ 	#165	Serrurerie	21%	28%	5.1€	10€
+ 	#149	SPA	Statistiques indisponibles	20€
+ 	#95	Store banne	46%	31%	7.8€	20€
+ 	#116	Sur élévation de toiture	5%	19%	5€	16€
+ 	#29	Tapisserie - Papier peint	52%	36%	7.3€	16€
+ 	#110	Télésurveillance - vidéosurveillance	14%	7%	5€	20€
+ 	#52	Termites	54%	50%	9€	12€
+ 	#141	Terrasse béton	10%	34%	5€	13€
+ 	#142	Terrasse bois	10%	30%	4.9€	16€
+ 	#9	Terrassement	17%	31%	5.7€	13€
+Picto star	#49	Terrasses	60%	75%	8.6€	13€
+ 	#143	Toiture	86%	37%	11.8€	17€
+ 	#114	Traitement contre l'humidité	57%	41%	9.9€	21€
+ 	#161	Travaux d'architecture	Statistiques indisponibles	10€
+ 	#166	Velux - fenêtre de toit	88%	34%	12.5€	15€
+ 	#45	Véranda	32%	24%	6.3€	25€
+Picto star	#135	Verrière - cloison atelier	100%	43%	15.3€	16€
+ 	#168	Vidange fosse septique	13%	79%	3€	5€
+ 	#74	Visiophone (fourniture et pose)	Statistiques indisponibles	12€
+ 	#98	VMC	67%	48%	7.7€	23€
+ 	#147	Volet roulant	77%	35%	11.7€	20€
+ 	#61	VRD / Fosse septique	25%	55%	4.9€	13€
+ 	#24	WC	61%	40%	7.7€	16€
