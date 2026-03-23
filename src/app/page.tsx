@@ -283,10 +283,89 @@ export default function Home() {
                 Combien de temps faut-il pour recevoir un devis ?
               </AccordionTrigger>
               <AccordionContent className="text-slate-600 leading-relaxed pb-5 text-base">
-                En moyenne, nos artisans partenaires locaux vous contactent **sous 48 heures** (jours ouvrés) après votre demande afin d'affiner vos besoins et convenir d'une visite gratuite si nécessaire. 
+                En moyenne, nos artisans partenaires locaux vous contactent <strong>sous 48 heures</strong> (jours ouvrés) après votre demande afin d'affiner vos besoins et convenir d'une visite gratuite si nécessaire. 
               </AccordionContent>
             </AccordionItem>
+
+            <AccordionItem value="item-4" className="border border-slate-200 rounded-xl px-4 bg-slate-50 data-[state=open]:bg-white transition-colors">
+              <AccordionTrigger className="text-lg font-bold text-slate-800 hover:no-underline hover:text-orange-600 py-5 text-left">
+                Puis-je bénéficier des aides de l'État (MaPrimeRénov') ?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 leading-relaxed pb-5 text-base">
+                Oui absolument. Si votre projet est éligible (pompe à chaleur, isolation, etc.), notre réseau vérifiera que l'artisan sélectionné dispose bien du label <strong>RGE (Reconnu Garant de l'Environnement)</strong>. C'est la condition indispensable pour débloquer ces aides !
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="border border-slate-200 rounded-xl px-4 bg-slate-50 data-[state=open]:bg-white transition-colors">
+              <AccordionTrigger className="text-lg font-bold text-slate-800 hover:no-underline hover:text-orange-600 py-5 text-left">
+                Mes données personnelles sont-elles revendues ?
+              </AccordionTrigger>
+              <AccordionContent className="text-slate-600 leading-relaxed pb-5 text-base">
+                Non. Vos informations ne sont transmises qu'à un maximum de 3 artisans qualifiés de notre réseau afin qu'ils puissent étudier votre chantier en détail. Elles ne servent en aucun cas à du démarchage publicitaire abusif.
+              </AccordionContent>
+            </AccordionItem>
+
           </Accordion>
+
+          <div className="mt-8 text-center">
+            <Link href="/faq" className="text-orange-600 font-bold hover:underline inline-flex items-center gap-2">
+                Consulter toute notre FAQ Rénovation
+                <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Guides Section */}
+      <section className="py-24 bg-slate-50 border-y border-slate-200">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <h2 className="text-3xl font-extrabold text-slate-900 mb-4">Conseils d'Experts</h2>
+              <p className="text-slate-600 text-lg max-w-2xl">Découvrez nos derniers guides pour préparer au mieux vos projets de rénovation globale et optimiser vos budgets.</p>
+            </div>
+            <Link href="/guides" className="shrink-0 text-orange-600 font-bold hover:text-orange-700 flex items-center gap-1 group">
+              Voir tous nos guides
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Pompe à chaleur : Prix, aides et installation en 2026",
+                desc: "Tout savoir sur la PAC Air-Eau : coût réel, subventions MaPrimeRénov'...",
+                href: "/guides/pompe-a-chaleur-prix-aides-installation",
+                tag: "Chauffage",
+                color: "bg-orange-100 text-orange-700"
+              },
+              {
+                title: "Rénovation électrique : Mise aux normes (NF C 15-100)",
+                desc: "Quel budget faut-il prévoir pour refaire toute l'électricité de sa maison à neuf ?",
+                href: "/guides/renovation-electrique-normes-prix",
+                tag: "Électricité",
+                color: "bg-blue-100 text-blue-700"
+              },
+              {
+                title: "Budget Salle de Bain 2026 : Le vrai prix détaillé",
+                desc: "Dépose, plomberie, pose d'une douche à l'italienne : détail des prix au m².",
+                href: "/guides/budget-refaire-salle-de-bain-2026",
+                tag: "Plomberie",
+                color: "bg-emerald-100 text-emerald-700"
+              }
+            ].map((guide, i) => (
+              <Link key={i} href={guide.href} className="flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all group">
+                <div className="p-8 flex-1 flex flex-col">
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-5 w-fit ${guide.color}`}>{guide.tag}</span>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">{guide.title}</h3>
+                  <p className="text-slate-600 mb-6">{guide.desc}</p>
+                  <div className="mt-auto flex items-center gap-2 text-sm font-bold text-slate-900 group-hover:text-orange-600">
+                    Lire l'article <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
