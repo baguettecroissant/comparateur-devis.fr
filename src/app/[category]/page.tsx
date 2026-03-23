@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { notFound } from "next/navigation";
 import { getCategoryFromSlug, getAllCategories } from "@/lib/categories";
 import { getAllDepartments, DepartmentInfo, getRegions, slugifyRegion } from '@/lib/cities';

@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { notFound } from "next/navigation";
 import { getAllDepartments, getCitiesByDepartment, getDepartmentByCode, getDepartmentsByRegion } from "@/lib/cities";
 import Link from "next/link";
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `Travaux et Aménagements - Artisans dans le ${dept.name} (${dept.code})`,
         description: `Trouvez un artisan certifié dans le ${dept.name} (${dept.code}) pour vos travaux. Devis gratuits, rapides, et présentation des aides locales.`,
         alternates: {
-            canonical: `https://www.cout-monte-escalier.fr/annuaire/${slug}`,
+            canonical: `https://www.comparateur-devis.fr/annuaire/${slug}`,
         },
     };
 }

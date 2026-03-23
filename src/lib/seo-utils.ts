@@ -25,11 +25,16 @@ export function getAllCities(): City[] {
 }
 
 import { Category } from "@/lib/categories";
+import { getCategoryContent } from "@/lib/category-content";
+import { getUniquePageContent } from "@/lib/city-category-content";
 
 export function generateCityCategoryMetadata(city: City, category: Category) {
+    const content = getCategoryContent(category.slug, category.name);
+    const uniqueContent = getUniquePageContent(city, category, content);
+
     return {
-        title: `Devis et Prix ${category.name} à ${city.name} (${city.zip})`,
-        description: `Obtenez jusqu'à 3 devis gratuits pour votre projet de ${category.name.toLowerCase()} à ${city.name}. Comparez les artisans du département ${city.department_name}.`,
+        title: uniqueContent.metaTitle,
+        description: uniqueContent.metaDescription,
         alternates: {
             canonical: `https://www.comparateur-devis.fr/${category.slug}/${city.slug}`,
         },

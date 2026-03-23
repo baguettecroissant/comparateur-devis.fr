@@ -15,13 +15,13 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 
     return {
         title: currentPage > 1
-            ? `Guides & Conseils Monte-Escalier - Page ${currentPage} | Cout-Monte-Escalier.fr`
-            : "Guides & Conseils Monte-Escalier | Cout-Monte-Escalier.fr",
+            ? `Guides & Conseils Monte-Escalier - Page ${currentPage} | Comparateur-Devis.fr`
+            : "Guides & Conseils Monte-Escalier | Comparateur-Devis.fr",
         description: "Nos dossiers complets pour bien choisir votre monte-escalier : prix, aides financières, modèles et installation.",
         alternates: {
             canonical: currentPage > 1
-                ? `https://www.cout-monte-escalier.fr/guides?page=${currentPage}`
-                : "https://www.cout-monte-escalier.fr/guides",
+                ? `https://www.comparateur-devis.fr/guides?page=${currentPage}`
+                : "https://www.comparateur-devis.fr/guides",
         },
     };
 }

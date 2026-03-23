@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         title: brand.seoTitle,
         description: brand.seoDescription,
         alternates: {
-            canonical: `https://www.cout-monte-escalier.fr/marques/${slug}`,
+            canonical: `https://comparateur-devis.fr/marques/${slug}`,
         },
         openGraph: {
             title: brand.seoTitle,
@@ -139,7 +139,7 @@ export default async function BrandPage({ params }: PageProps) {
                                                 <h3 className="font-bold text-slate-900">{model.name}</h3>
                                                 <div className="flex items-center gap-2">
                                                     <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-full capitalize">
-                                                        {model.type === "droit" ? "Escalier droit" : model.type === "tournant" ? "Escalier tournant" : "Extérieur"}
+                                                        {model.type}
                                                     </span>
                                                     <span className="font-bold text-orange-600">{model.priceRange}</span>
                                                 </div>
@@ -212,12 +212,12 @@ export default async function BrandPage({ params }: PageProps) {
                                 <h3 className="font-bold text-slate-900 mb-4">Prix {brand.name} 2026</h3>
                                 <div className="space-y-3 mb-6">
                                     <div className="flex justify-between items-center p-3 bg-slate-50 rounded-lg">
-                                        <span className="text-slate-600">Escalier droit</span>
-                                        <span className="font-bold text-slate-900">{brand.priceRange.droit}</span>
+                                        <span className="text-slate-600">Matériel (fourniture)</span>
+                                        <span className="font-bold text-slate-900">{brand.priceRange.fourniture}</span>
                                     </div>
                                     <div className="flex justify-between items-center p-3 bg-slate-50 rounded-lg">
-                                        <span className="text-slate-600">Escalier tournant</span>
-                                        <span className="font-bold text-slate-900">{brand.priceRange.tournant}</span>
+                                        <span className="text-slate-600">Coût d'installation</span>
+                                        <span className="font-bold text-slate-900">{brand.priceRange.pose}</span>
                                     </div>
                                 </div>
 
@@ -253,17 +253,17 @@ export default async function BrandPage({ params }: PageProps) {
                                             <span className="text-2xl">{other.countryFlag}</span>
                                             <div>
                                                 <div className="font-medium text-slate-900">{other.name}</div>
-                                                <div className="text-xs text-slate-500">{other.priceRange.droit}</div>
+                                                <div className="text-xs text-slate-500">Matériel : {other.priceRange.fourniture}</div>
                                             </div>
                                         </Link>
                                     ))}
                                 </div>
 
                                 <Link
-                                    href="/guides/comparatif-marques-monte-escalier"
+                                    href="/marques"
                                     className="block mt-4 text-center text-sm text-orange-600 hover:underline"
                                 >
-                                    Voir le comparatif complet →
+                                    Voir toutes les marques →
                                 </Link>
                             </div>
                         </div>
@@ -277,10 +277,10 @@ export default async function BrandPage({ params }: PageProps) {
                     <h2 className="text-xl font-bold text-slate-900 mb-6">Guides complémentaires</h2>
                     <div className="grid sm:grid-cols-2 gap-4">
                         {[
-                            { slug: "prix-monte-escalier-2026", title: "Prix Monte-Escalier 2026" },
-                            { slug: "devis-monte-escalier-pieges", title: "7 Pièges à Éviter sur un Devis" },
-                            { slug: "monte-escalier-occasion", title: "Monte-Escalier d'Occasion" },
-                            { slug: "entretien-monte-escalier", title: "Entretien et Maintenance" },
+                            { slug: "aides-financieres-renovation", title: "Aides Financières aux Travaux" },
+                            { slug: "choisir-artisan-rge", title: "Comment choisir un artisan RGE ?" },
+                            { slug: "pieges-devis-travaux", title: "5 pièges à éviter sur un devis" },
+                            { slug: "tva-reduite-travaux", title: "TVA à 5,5% ou 10% : y avez-vous droit ?" },
                         ].map((guide) => (
                             <Link
                                 key={guide.slug}

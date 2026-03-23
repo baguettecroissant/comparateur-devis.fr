@@ -2,75 +2,117 @@
 import { City } from '@/types';
 
 /**
- * Returns a random string from the provided options.
+ * Hash déterministe DJB2 — produit un entier positif stable pour une chaîne donnée.
+ * Garantit : même input → même output (pas de Math.random).
  */
-export function getRandomSpintax(options: string[]): string {
-    // Simple pseudo-random based on string length or date to avoid hydration mismatch? 
-    // Ideally we'd want deterministic randomness based on the City slug to be consistent across builds/renders.
-    // BUT user asked for "Spintax (variations aléatoires)".
-    // If we use Math.random(), next build might change it. That's usually fine for pSEO.
-    // To safe for hydration on Next.js, we should be careful.
-    // If this runs on server component only, Math.random() is fine.
-
-    return options[Math.floor(Math.random() * options.length)];
+export function hashDeterministic(input: string): number {
+    let hash = 5381;
+    for (let i = 0; i < input.length; i++) {
+        hash = ((hash << 5) + hash) + input.charCodeAt(i);
+        hash = hash & hash;
+    }
+    return Math.abs(hash);
 }
 
 /**
- * Generates an SEO-optimized intro based on city population.
+ * Sélectionne un élément parmi un tableau de variantes de façon déterministe.
  */
-export function getCityIntro(city: City): string {
+export function pickVariant<T>(variants: T[], seed: string): T {
+    return variants[hashDeterministic(seed) % variants.length];
+}
+
+/**
+ * Classifie la taille d'une ville en tier (1 = métropole, 5 = inconnu/micro).
+ */
+export function getCityTier(city: City): 1 | 2 | 3 | 4 | 5 {
+    const pop = city.population || 0;
+    if (pop > 50000) return 1;
+    if (pop > 10000) return 2;
+    if (pop > 2000) return 3;
+    if (pop > 0) return 4;
+    return 5;
+}
+
+/**
+ * Retourne un qualificatif contextuel pour la ville, déterministe.
+ */
+export function getCityQualifier(city: City, seed: string): string {
+    const tier = getCityTier(city);
+    const variants: Record<number, string[]> = {
+        1: [
+            `grande agglomération du ${city.department_name}`,
+            `métropole dynamique de la région ${city.region}`,
+            `ville majeure du département ${city.department_code}`,
+            `pôle urbain incontournable du ${city.department_name}`,
+        ],
+        2: [
+            `ville active du ${city.department_name}`,
+            `commune importante de la région ${city.region}`,
+            `bassin de vie dynamique du ${city.department_code}`,
+            `cité en plein développement du ${city.department_name}`,
+        ],
+        3: [
+            `commune à taille humaine du ${city.department_name}`,
+            `bourg animé de la région ${city.region}`,
+            `localité agréable du département ${city.department_code}`,
+            `petite ville conviviale du ${city.department_name}`,
+        ],
+        4: [
+            `village paisible du ${city.department_name}`,
+            `commune rurale de la région ${city.region}`,
+            `hameau typique du ${city.department_code}`,
+            `localité au cadre de vie préservé en ${city.region}`,
+        ],
+        5: [
+            `commune du ${city.department_name}`,
+            `localité du département ${city.department_code}`,
+            `secteur résidentiel de la région ${city.region}`,
+        ],
+    };
+    return pickVariant(variants[tier], seed);
+}
+
+/**
+ * Génère un paragraphe d'introduction contextualisé par catégorie + ville.
+ * 100% déterministe (même résultat à chaque build pour une même paire).
+ */
+export function getCityIntro(city: City, categoryName?: string): string {
+    const catName = categoryName ? categoryName.toLowerCase() : 'travaux';
+    const seed = `intro-${city.slug}-${catName}`;
+    const qualifier = getCityQualifier(city, seed);
+    const tier = getCityTier(city);
     const pop = city.population || 0;
 
-    // Tier 1: Major Cities (> 50k)
-    if (pop > 50000) {
-        const options = [
-            `Métropole dynamique du département ${city.department_name}, ${city.name} dispose de nombreux installateurs qualifiés pour sécuriser votre escalier.`,
-            `Grâce à son réseau d'experts, la grande agglomération de ${city.name} offre un large choix de solutions d'accessibilité.`,
-            `Au cœur de ${city.name}, améliorez votre confort de vie grâce aux spécialistes du monte-escalier présents dans la région ${city.region}.`,
-            `Résider dans une grande ville comme ${city.name} vous assure un accès rapide aux meilleurs techniciens pour votre installation.`
-        ];
-        return getRandomSpintax(options);
-    }
-
-    // Tier 2: Cities (> 10k)
-    if (pop > 10000) {
-        const options = [
-            `Ville active du ${city.department_name}, ${city.name} bénéficie d'une excellente couverture par les installateurs de la région.`,
-            `À ${city.name}, ville en mouvement, sécuriser son domicile est simple grâce à la proximité de nombreux artisans certifiés.`,
-            `Commune importante de la région ${city.region}, ${city.name} propose diverses options pour l'installation rapide d'un monte-escalier.`,
-            `Que vous soyez en centre-ville ou en périphérie de ${city.name}, nos partenaires interviennent rapidement pour votre devis.`
-        ];
-        return getRandomSpintax(options);
-    }
-
-    // Tier 3: Towns (> 2k)
-    if (pop > 2000) {
-        const options = [
-            `Cadre de vie agréable à ${city.name}, où le maintien à domicile est facilité par l'intervention d'artisans locaux qualifiés.`,
-            `Située en ${city.region}, la commune de ${city.name} est bien desservie par les experts du monte-escalier.`,
-            `Profitez du calme de ${city.name} tout en sécurisant votre maison grâce aux solutions d'accessibilité disponibles dans le ${city.department_code}.`,
-            `À ${city.name}, commune à taille humaine, bénéficiez d'un accompagnement personnalisé pour votre projet de monte-escalier.`
-        ];
-        return getRandomSpintax(options);
-    }
-
-    // Tier 4: Villages (> 0)
-    if (pop > 0) {
-        const options = [
-            `Village paisible, ${city.name} est parfaitement couverte par les techniciens de la région ${city.region}, habitués à intervenir en zone rurale.`,
-            `Au calme à ${city.name}, préservez votre autonomie avec une installation sur-mesure réalisée par des pros locaux.`,
-            `Vivre à ${city.name} offre une tranquillité appréciable. Nos artisans se déplacent même dans les plus petites communes du ${city.department_name}.`,
-            `Charmante localité rurale, ${city.name} bénéficie des mêmes aides (MaPrimeAdapt') que les grandes villes pour vos travaux.`
-        ];
-        return getRandomSpintax(options);
-    }
-
-    // Tier 5: Fallback / Unknown Population (0 or undefined)
-    const options = [
-        `Dans le département ${city.department_name}, ${city.name} est desservie par notre réseau d'installateurs agréés.`,
-        `Habiter à ${city.name} vous permet de bénéficier de devis gratuits pour l'installation de votre monte-escalier.`,
-        `La commune de ${city.name} fait partie de notre zone d'intervention prioritaire en région ${city.region}.`,
-        `Pour votre projet à ${city.name}, faites confiance aux artisans partenaires intervenant régulièrement dans le ${city.department_code}.`
+    // Blocs de phrases contextuelles
+    const openings: string[] = [
+        `${city.name}, ${qualifier}, dispose d'un réseau étoffé de professionnels qualifiés en ${catName}.`,
+        `Habitant·e de ${city.name} (${city.zip}), vous recherchez un spécialiste en ${catName} ? Notre comparateur vous met en relation avec les artisans certifiés du ${city.department_name}.`,
+        `Que vous habitiez en centre-ville ou en périphérie de ${city.name}, les professionnels en ${catName} du ${city.department_code} interviennent rapidement dans votre secteur.`,
+        `${city.name} (${city.department_name}), ${qualifier}, bénéficie d'une excellente couverture par les artisans spécialisés en ${catName} de la région ${city.region}.`,
+        `Besoin d'un expert en ${catName} à ${city.name} ? Les artisans du département ${city.department_name} couvrent l'intégralité de la commune et ses environs.`,
     ];
-    return getRandomSpintax(options);
+
+    let contextSuffix = '';
+    if (tier <= 2 && pop > 10000) {
+        const suffixes = [
+            `Avec ${pop.toLocaleString('fr-FR')} habitants, ${city.name} concentre de nombreux chantiers de ${catName} chaque année, ce qui garantit la disponibilité d'artisans expérimentés.`,
+            `La densité de professionnels à ${city.name} vous assure un large choix de devis compétitifs pour votre projet de ${catName}.`,
+            `Dans une agglomération comme ${city.name}, les interventions de ${catName} sont fréquentes — les artisans locaux connaissent parfaitement les spécificités du bâti de la région.`,
+        ];
+        contextSuffix = ' ' + pickVariant(suffixes, seed + '-suffix');
+    } else if (tier === 3) {
+        const suffixes = [
+            `Les professionnels du ${city.department_code} se déplacent régulièrement sur ${city.name} et ses alentours.`,
+            `Malgré sa taille, ${city.name} est bien desservie par les artisans en ${catName} du secteur.`,
+        ];
+        contextSuffix = ' ' + pickVariant(suffixes, seed + '-suffix');
+    } else if (tier >= 4) {
+        const suffixes = [
+            `Les artisans de la région ${city.region} interviennent également dans les communes rurales comme ${city.name} — vous bénéficiez des mêmes prestations et garanties.`,
+            `Même en zone rurale, ${city.name} est couverte par notre réseau d'experts en ${catName}, habitués à se déplacer dans le ${city.department_name}.`,
+        ];
+        contextSuffix = ' ' + pickVariant(suffixes, seed + '-suffix');
+    }
+
+    return pickVariant(openings, seed + '-opening') + contextSuffix;
 }

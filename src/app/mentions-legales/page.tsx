@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata = {
-    title: "Mentions Légales & Confidentialité | Cout-Monte-Escalier.fr",
-    description: "Mentions légales, éditeur, hébergement et politique de confidentialité du site Cout-Monte-Escalier.fr.",
+    title: "Mentions Légales & Confidentialité | Comparateur-Devis.fr",
+    description: "Mentions légales, éditeur, hébergement et politique de confidentialité du site Comparateur-Devis.fr.",
     robots: {
         index: false,
         follow: false,
@@ -42,7 +42,7 @@ export default function MentionsLegalesPage() {
                             <div>
                                 <h3 className="text-xl font-bold text-slate-800 mb-3">1. Éditeur du site</h3>
                                 <div className="text-slate-600 leading-relaxed">
-                                    <p className="mb-2">Le site <strong>cout-monte-escalier.fr</strong> est édité par la société :</p>
+                                    <p className="mb-2">Le site <strong>comparateur-devis.fr</strong> est édité par la société :</p>
                                     <ul className="bg-slate-50 p-6 rounded-lg border border-slate-200 space-y-2">
                                         <li className="font-bold text-slate-900">WADE STUDIO LTD</li>
                                         <li>Société enregistrée auprès du Registrar of Companies de Maurice.</li>
@@ -51,7 +51,7 @@ export default function MentionsLegalesPage() {
                                         <li>Siège social : 432 Ave Bounty, Morcellement Balaclava, MAURITIUS.</li>
                                     </ul>
                                     <div className="mt-4">
-                                        <p><strong>Email de contact :</strong> contact@cout-monte-escalier.fr</p>
+                                        <p><strong>Email de contact :</strong> contact@comparateur-devis.fr</p>
                                         <p><strong>Directeur de la publication :</strong> Wade Timothy</p>
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@ export default function MentionsLegalesPage() {
                             <div>
                                 <h3 className="text-xl font-bold text-slate-800 mb-3">3. Propriété intellectuelle</h3>
                                 <p className="text-slate-600 leading-relaxed">
-                                    L'ensemble de ce site relève de la législation internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés. La marque "WADE STUDIO LTD" et le nom de domaine "cout-monte-escalier.fr" sont la propriété exclusive de l'éditeur.
+                                    L'ensemble de ce site relève de la législation internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés. La marque "WADE STUDIO LTD" et le nom de domaine "comparateur-devis.fr" sont la propriété exclusive de l'éditeur.
                                 </p>
                             </div>
 
@@ -77,7 +77,7 @@ export default function MentionsLegalesPage() {
                                 <h3 className="text-xl font-bold text-slate-800 mb-3">4. Limitation de responsabilité</h3>
                                 <div className="text-slate-600 leading-relaxed space-y-4">
                                     <p>
-                                        Le site cout-monte-escalier.fr agit en tant qu'intermédiaire technique (apporteur d'affaires). Il a pour but de faciliter la mise en relation entre des particuliers et des professionnels du bâtiment via des partenaires affiliés.
+                                        Le site comparateur-devis.fr agit en tant qu'intermédiaire technique (apporteur d'affaires). Il a pour but de faciliter la mise en relation entre des particuliers et des professionnels du bâtiment via des partenaires affiliés.
                                     </p>
                                     <p>
                                         La société WADE STUDIO LTD n'est pas une entreprise de bâtiment et n'effectue aucun travaux.
@@ -154,7 +154,7 @@ export default function MentionsLegalesPage() {
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
                                     </div>
                                     <p className="text-blue-900 text-sm">
-                                        Pour exercer ce droit, contactez-nous à : <strong>contact@cout-monte-escalier.fr</strong> ou par courrier à notre siège social.
+                                        Pour exercer ce droit, contactez-nous à : <strong>contact@comparateur-devis.fr</strong> ou par courrier à notre siège social.
                                     </p>
                                 </div>
                             </div>

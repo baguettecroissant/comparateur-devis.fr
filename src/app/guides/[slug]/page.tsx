@@ -28,18 +28,18 @@ export async function generateMetadata({ params }: PageProps) {
         title: guide.metaTitle,
         description: guide.metaDescription,
         alternates: {
-            canonical: `https://www.cout-monte-escalier.fr/guides/${slug}`,
+            canonical: `https://www.comparateur-devis.fr/guides/${slug}`,
         },
         openGraph: {
             title: guide.metaTitle,
             description: guide.metaDescription,
-            url: `https://www.cout-monte-escalier.fr/guides/${slug}`,
-            siteName: "Cout-Monte-Escalier.fr",
+            url: `https://www.comparateur-devis.fr/guides/${slug}`,
+            siteName: "Comparateur-Devis.fr",
             locale: "fr_FR",
             type: "article",
             publishedTime: guide.date,
             authors: [guide.author],
-            ...(guide.image && { images: [{ url: `https://www.cout-monte-escalier.fr${guide.image}`, width: 1200, height: 630, alt: guide.title }] }),
+            ...(guide.image && { images: [{ url: `https://www.comparateur-devis.fr${guide.image}`, width: 1200, height: 630, alt: guide.title }] }),
         },
         twitter: {
             card: "summary_large_image",
@@ -78,19 +78,19 @@ export default async function GuidePost({ params }: PageProps) {
         },
         "publisher": {
             "@type": "Organization",
-            "name": "Cout-Monte-Escalier.fr",
-            "url": "https://www.cout-monte-escalier.fr",
+            "name": "Comparateur-Devis.fr",
+            "url": "https://www.comparateur-devis.fr",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.cout-monte-escalier.fr/icon.png",
+                "url": "https://www.comparateur-devis.fr/icon.png",
             },
         },
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://www.cout-monte-escalier.fr/guides/${slug}`,
+            "@id": `https://www.comparateur-devis.fr/guides/${slug}`,
         },
         ...(guide.image && {
-            "image": `https://www.cout-monte-escalier.fr${guide.image}`,
+            "image": `https://www.comparateur-devis.fr${guide.image}`,
         }),
     };
 

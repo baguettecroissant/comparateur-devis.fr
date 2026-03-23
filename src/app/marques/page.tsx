@@ -6,11 +6,11 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { BRANDS } from "@/data/brands";
 
 export const metadata: Metadata = {
-    title: "Marques Monte-Escalier : Comparatif Stannah, Thyssenkrupp, Handicare",
-    description: "Comparez les meilleures marques de monte-escalier : Stannah, Thyssenkrupp, Handicare. Prix, qualité, SAV, garantie. Guide complet 2026.",
+    title: "Comparatif des Grandes Marques de l'Habitat et de la Rénovation",
+    description: "Comparez les meilleures marques pour vos travaux : Atlantic, Velux, Somfy. Prix standards, avis clients, garanties et points forts. Guide complet 2026.",
     openGraph: {
-        title: "Marques Monte-Escalier : Comparatif 2026",
-        description: "Comparez Stannah, Thyssenkrupp, Handicare : prix, qualité, SAV. Trouvez la marque idéale.",
+        title: "Grandes Marques Rénovation & Habitat : Comparatif 2026",
+        description: "Découvrez les meilleures marques pour vos travaux de rénovation : pompes à chaleur, fenêtres, domotique. Prix, qualité, SAV.",
     },
 };
 
@@ -36,10 +36,10 @@ export default function MarquesPage() {
                     <Breadcrumbs items={[{ label: "Marques" }]} />
                     <div className="max-w-3xl mt-6">
                         <h1 className="text-3xl md:text-5xl font-bold mb-4">
-                            Comparatif des <span className="text-orange-400">Marques</span> de Monte-Escalier
+                            Comparatif des <span className="text-orange-400">Grandes Marques</span> de l'Habitat
                         </h1>
                         <p className="text-xl text-slate-300">
-                            Stannah, Thyssenkrupp, Handicare : découvrez les forces et faiblesses de chaque fabricant pour faire le bon choix.
+                            Atlantic, Velux, Somfy : découvrez les forces, faiblesses et le positionnement tarifaire des leaders de la rénovation pour faire le bon choix.
                         </p>
                     </div>
                 </div>
@@ -84,12 +84,12 @@ export default function MarquesPage() {
                                     {/* Price Range */}
                                     <div className="bg-slate-50 rounded-xl p-4 mb-6">
                                         <div className="flex justify-between text-sm mb-2">
-                                            <span className="text-slate-600">Droit</span>
-                                            <span className="font-bold text-slate-900">{brand.priceRange.droit}</span>
+                                            <span className="text-slate-600">Matériel exclusif</span>
+                                            <span className="font-bold text-slate-900">{brand.priceRange.fourniture}</span>
                                         </div>
                                         <div className="flex justify-between text-sm">
-                                            <span className="text-slate-600">Tournant</span>
-                                            <span className="font-bold text-slate-900">{brand.priceRange.tournant}</span>
+                                            <span className="text-slate-600">Main d'œuvre moyenne</span>
+                                            <span className="font-bold text-slate-900">{brand.priceRange.pose}</span>
                                         </div>
                                     </div>
 
@@ -127,8 +127,8 @@ export default function MarquesPage() {
                             <thead>
                                 <tr className="bg-slate-100">
                                     <th className="border border-slate-200 p-4 text-left">Marque</th>
-                                    <th className="border border-slate-200 p-4 text-left">Prix droit</th>
-                                    <th className="border border-slate-200 p-4 text-left">Prix tournant</th>
+                                    <th className="border border-slate-200 p-4 text-left">Fourniture moyenne</th>
+                                    <th className="border border-slate-200 p-4 text-left">Pose estimée</th>
                                     <th className="border border-slate-200 p-4 text-left">Garantie</th>
                                     <th className="border border-slate-200 p-4 text-left">Point fort</th>
                                 </tr>
@@ -141,8 +141,8 @@ export default function MarquesPage() {
                                                 {brand.countryFlag} {brand.name}
                                             </Link>
                                         </td>
-                                        <td className="border border-slate-200 p-4">{brand.priceRange.droit}</td>
-                                        <td className="border border-slate-200 p-4">{brand.priceRange.tournant}</td>
+                                        <td className="border border-slate-200 p-4">{brand.priceRange.fourniture}</td>
+                                        <td className="border border-slate-200 p-4">{brand.priceRange.pose}</td>
                                         <td className="border border-slate-200 p-4">{brand.warranty}</td>
                                         <td className="border border-slate-200 p-4 text-sm">{brand.pros[0]}</td>
                                     </tr>
@@ -156,9 +156,9 @@ export default function MarquesPage() {
             {/* CTA */}
             <section className="py-16 bg-gradient-to-br from-orange-500 to-amber-500 text-white">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-bold mb-4">Besoin d'un devis personnalisé ?</h2>
+                    <h2 className="text-3xl font-bold mb-4">Besoin d'un devis pour votre projet ?</h2>
                     <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                        Recevez des propositions des 3 marques pour comparer les prix sur votre configuration exacte.
+                        Recevez les propositions chiffrées de nos artisans partenaires spécialisés pour comparer les tarifs de la marque de votre choix.
                     </p>
                     <Link href="/devis">
                         <Button size="lg" className="bg-white text-orange-600 hover:bg-slate-100 text-lg px-10 h-14 rounded-full shadow-lg">
@@ -172,18 +172,17 @@ export default function MarquesPage() {
             {/* SEO Content */}
             <section className="py-16 bg-slate-50 border-t border-slate-200">
                 <div className="container mx-auto px-4 max-w-3xl prose prose-slate">
-                    <h2>Comment choisir sa marque de monte-escalier ?</h2>
+                    <h2>Comment choisir la vitrine parfaite pour ses travaux ?</h2>
                     <p>
-                        Le choix de la marque est important mais ne doit pas être le seul critère.
-                        Voici les points à considérer :
+                        Avant d'arrêter son choix sur un équipement spécifique (climatiseur, fenêtre de toit, motorisation), plusieurs critères sont décisifs :
                     </p>
                     <ul>
-                        <li><strong>Le SAV local</strong> : un installateur réactif proche de chez vous est essentiel</li>
-                        <li><strong>La configuration</strong> : certaines marques excellent sur les tournants, d'autres sur les droits</li>
-                        <li><strong>Votre budget</strong> : avec les <Link href="/calculateur-aides" className="text-orange-600">aides disponibles</Link>, même les marques premium deviennent accessibles</li>
+                        <li><strong>La pérennité du réseau SAV</strong> : assurez-vous de trouver facilement un installateur en cas de panne</li>
+                        <li><strong>Compatibilité et écosystème</strong> : votre choix s'intègre-t-il bien dans votre environnement domotique actuel ?</li>
+                        <li><strong>L'éligibilité aux aides</strong> : beaucoup de grandes marques proposent du matériel éligible à <Link href="/calculateur-aides" className="text-orange-600">MaPrimeRénov'</Link> s'il est posé par un artisan qualifié</li>
                     </ul>
                     <p>
-                        Pour un comparatif détaillé, consultez notre <Link href="/guides/comparatif-marques-monte-escalier" className="text-orange-600">guide complet des marques</Link>.
+                        Prêt à évaluer financièrement votre projet ? N'hésitez pas à lancer plusieurs demandes pour <Link href="/devis" className="text-orange-600">comparer les prix finaux (fourniture et pose)</Link>.
                     </p>
                 </div>
             </section>
