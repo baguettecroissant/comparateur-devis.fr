@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     title: "Comparateur Devis 2026 - Artisans et Travaux",
     description: "Obtenez un devis exact pour vos travaux. Comparez 3 offres.",
   },
+  other: {
+    '582210393a380bb': '8a34cd5d2ad2772c8d194f6975f52fc3',
+  },
 };
 
 const jsonLd = {
