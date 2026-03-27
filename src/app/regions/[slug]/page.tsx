@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic';
+export const revalidate = 86400; // ISR: revalidate every 24h
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -24,6 +24,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `Artisans en ${regionName} — Annuaire vérifiés 2026 | Comparateur Devis`,
         description: content.description.substring(0, 155) + "...",
     };
+}
+
+export async function generateStaticParams() {
+    const regions = getRegions();
+    return regions.map((r) => ({
+        slug: slugifyRegion(r),
+    }));
 }
 
 export default async function RegionDedicatedPage({ params }: Props) {

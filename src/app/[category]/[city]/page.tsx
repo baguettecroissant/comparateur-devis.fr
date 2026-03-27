@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic';
+export const revalidate = 86400; // ISR: revalidate every 24h
 import { notFound } from "next/navigation";
 import { getCityFromSlug, generateCityCategoryMetadata } from "@/lib/seo-utils";
 import { getCategoryFromSlug, getAllCategories } from "@/lib/categories";

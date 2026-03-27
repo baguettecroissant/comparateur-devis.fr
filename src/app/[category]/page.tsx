@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic';
+export const revalidate = 86400; // ISR: revalidate every 24h
 import { notFound } from "next/navigation";
 import { getCategoryFromSlug, getAllCategories } from "@/lib/categories";
 import { getAllDepartments, DepartmentInfo, getRegions, slugifyRegion } from '@/lib/cities';
@@ -44,6 +44,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             canonical: `https://www.comparateur-devis.fr/${category.slug}`,
         },
     };
+}
+
+export async function generateStaticParams() {
+    const categories = getAllCategories();
+    return categories.map((c) => ({
+        category: c.slug,
+    }));
 }
 
 export default async function CategoryAnnuairePage({ params }: Props) {
@@ -123,7 +130,7 @@ export default async function CategoryAnnuairePage({ params }: Props) {
                     
                     <div className="flex items-center gap-2 text-sm text-[#b0a89d] mb-12">
                         <Clock className="h-4 w-4" />
-                        <span>Données artisans mises à jour le {new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                        <span>Données artisans mises à jour en mars 2026</span>
                     </div>
 
                     {/* Stats Grid — specific to category */}

@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic';
+export const revalidate = 86400; // ISR: revalidate every 24h
 import { notFound } from "next/navigation";
 import { getAllDepartments, getCitiesByDepartment, getDepartmentByCode, getDepartmentsByRegion } from "@/lib/cities";
 import Link from "next/link";

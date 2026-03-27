@@ -1,6 +1,6 @@
 import { getAllCities } from '@/lib/seo-utils';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // ISR: revalidate every 1h
 const CITIES_PER_CHUNK = 250;
 
 export async function GET() {
