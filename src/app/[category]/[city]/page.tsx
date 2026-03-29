@@ -1,4 +1,7 @@
 export const revalidate = 86400; // ISR: revalidate every 24h
+// Pré-générer les top 200 villes × 155 catégories au build (31K pages statiques)
+// Les autres villes restent en ISR dynamique avec dynamicParams = true
+export const dynamicParams = true;
 import { notFound } from "next/navigation";
 import { getCityFromSlug, generateCityCategoryMetadata } from "@/lib/seo-utils";
 import { getCategoryFromSlug, getAllCategories } from "@/lib/categories";
@@ -31,6 +34,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         return {};
     }
     return generateCityCategoryMetadata(city, category);
+}
+
+import { getTopCities } from "@/lib/seo-utils";
+
+export async function generateStaticParams() {
+    const categories = getAllCategories();
+    const topCities = getTopCities(200); // Top 200 villes par population
+    
+    return topCities.flatMap(city =>
+        categories.map(cat => ({
+            category: cat.slug,
+            city: city.slug,
+        }))
+    );
 }
 
 export default async function CityCategoryPage({ params }: Props) {

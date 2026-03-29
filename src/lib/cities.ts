@@ -11,6 +11,10 @@ export interface DepartmentInfo {
     aide_locale: string;
 }
 
+// ── Index Maps O(1) pour éviter .find() O(n) sur 35K items ──
+const departmentsByCode = new Map<string, DepartmentInfo>();
+(departmentsData as DepartmentInfo[]).forEach(d => departmentsByCode.set(d.code, d));
+
 // Haversine Formula for distance
 function getDistanceFromLatLonInKm(lat1: number, lon1: number, lat2: number, lon2: number) {
     var R = 6371; // Radius of the earth in km
@@ -61,7 +65,7 @@ export function getNearbyCities(currentCity: City, limit: number = 6): City[] {
 }
 
 export function getDepartmentByCode(code: string): DepartmentInfo | undefined {
-    return departmentsData.find(d => d.code === code);
+    return departmentsByCode.get(code);
 }
 
 export function getCitiesByDepartment(deptCode: string): City[] {
@@ -69,11 +73,11 @@ export function getCitiesByDepartment(deptCode: string): City[] {
 }
 
 export function getAllDepartments(): DepartmentInfo[] {
-    return departmentsData;
+    return departmentsData as DepartmentInfo[];
 }
 
 export function getDepartmentsByRegion(region: string): DepartmentInfo[] {
-    return departmentsData.filter(d => d.region === region);
+    return (departmentsData as DepartmentInfo[]).filter(d => d.region === region);
 }
 
 export function getRegions(): string[] {
@@ -91,4 +95,3 @@ export function slugifyRegion(region: string): string {
 export function getRegionBySlug(slug: string): string | undefined {
     return getRegions().find(r => slugifyRegion(r) === slug);
 }
-

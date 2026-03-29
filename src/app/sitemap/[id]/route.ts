@@ -1,4 +1,4 @@
-import { getAllCities } from '@/lib/seo-utils';
+import { getTopCities } from '@/lib/seo-utils';
 import { notFound } from 'next/navigation';
 import { GUIDES } from '@/data/guides-content';
 import { BRANDS } from '@/data/brands';
@@ -7,11 +7,17 @@ import { getAllCategories } from '@/lib/categories';
 
 export const dynamic = 'force-static';
 const BASE_URL = 'https://www.comparateur-devis.fr';
+
+// ── OPTIMISATION : Seules les top 200 villes sont dans le sitemap ──
+// Réduit de 5.5M URLs à ~31K URLs (réduction 99.5%)
+// Les autres villes restent accessibles via ISR dynamique mais sans être crawlées
+const TOP_CITIES_LIMIT = 200;
 const CITIES_PER_CHUNK = 250;
 
 export async function generateStaticParams() {
-    const citiesTotal = getAllCities().length;
-    const numChunks = Math.ceil(citiesTotal / CITIES_PER_CHUNK);
+    const topCities = getTopCities(TOP_CITIES_LIMIT);
+    const totalCityPages = topCities.length * getAllCategories().length;
+    const numChunks = Math.ceil(totalCityPages / CITIES_PER_CHUNK);
     
     const params = [
         { id: 'main.xml' }
@@ -90,24 +96,24 @@ export async function GET(
             urls.push({
                 url: `${BASE_URL}/annuaire/${slug}`,
                 lastModified: siteLastUpdated,
-                changeFrequency: 'weekly',
+                changeFrequency: 'monthly',
                 priority: 0.8,
             });
             urls.push({
                 url: `${BASE_URL}/regions/${slug}`,
                 lastModified: siteLastUpdated,
-                changeFrequency: 'weekly',
+                changeFrequency: 'monthly',
                 priority: 0.8,
             });
         });
         
-        // Category Department landing pages
+        // Category pages + Category×Department landing pages
         const categories = getAllCategories();
         categories.forEach(category => {
             urls.push({
                 url: `${BASE_URL}/${category.slug}`,
                 lastModified: siteLastUpdated,
-                changeFrequency: 'weekly',
+                changeFrequency: 'monthly',
                 priority: 0.8,
             });
             departmentsData.forEach(dept => {
@@ -115,7 +121,7 @@ export async function GET(
                 urls.push({
                     url: `${BASE_URL}/${category.slug}/annuaire/${deptSlug}`,
                     lastModified: siteLastUpdated,
-                    changeFrequency: 'weekly',
+                    changeFrequency: 'monthly',
                     priority: 0.7,
                 });
             });
@@ -124,25 +130,32 @@ export async function GET(
         const chunkIndex = parseInt(sitemapId.replace('cities-', ''), 10);
         if (isNaN(chunkIndex)) return notFound();
 
-        const allCities = getAllCities();
+        // Utiliser seulement les top villes
+        const topCities = getTopCities(TOP_CITIES_LIMIT);
+        const categories = getAllCategories();
+        
+        // Générer toutes les URLs city+category
+        const allCityUrls: { city: typeof topCities[0], category: typeof categories[0] }[] = [];
+        topCities.forEach(city => {
+            categories.forEach(category => {
+                allCityUrls.push({ city, category });
+            });
+        });
+
         const start = chunkIndex * CITIES_PER_CHUNK;
         const end = start + CITIES_PER_CHUNK;
-        const chunkCities = allCities.slice(start, end);
+        const chunk = allCityUrls.slice(start, end);
 
-        if (chunkCities.length === 0) {
+        if (chunk.length === 0) {
             return notFound();
         }
 
-        const categories = getAllCategories();
-        
-        chunkCities.forEach((city) => {
-            categories.forEach(category => {
-                urls.push({
-                    url: `${BASE_URL}/${category.slug}/${city.slug}`,
-                    lastModified: siteLastUpdated,
-                    changeFrequency: 'weekly',
-                    priority: 0.6,
-                });
+        chunk.forEach(({ city, category }) => {
+            urls.push({
+                url: `${BASE_URL}/${category.slug}/${city.slug}`,
+                lastModified: siteLastUpdated,
+                changeFrequency: 'monthly', // Changed from 'weekly' to reduce bot crawl pressure
+                priority: 0.6,
             });
         });
     } else {
@@ -163,6 +176,7 @@ export async function GET(
     return new Response(xml, {
         headers: {
             'Content-Type': 'application/xml',
+            'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
         },
     });
 }

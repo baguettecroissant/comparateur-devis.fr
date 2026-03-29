@@ -1,12 +1,18 @@
-import { getAllCities } from '@/lib/seo-utils';
+import { getTopCities } from '@/lib/seo-utils';
+import { getAllCategories } from '@/lib/categories';
 
-export const revalidate = 3600; // ISR: revalidate every 1h
+export const revalidate = 86400; // ISR: revalidate every 24h (was 1h — unnecessary)
+
 const CITIES_PER_CHUNK = 250;
 
 export async function GET() {
     const baseUrl = 'https://www.comparateur-devis.fr';
-    const citiesTotal = getAllCities().length;
-    const numChunks = Math.ceil(citiesTotal / CITIES_PER_CHUNK);
+    
+    // Seules les top 200 villes dans le sitemap
+    const topCities = getTopCities(200);
+    const categories = getAllCategories();
+    const totalCityPages = topCities.length * categories.length;
+    const numChunks = Math.ceil(totalCityPages / CITIES_PER_CHUNK);
 
     const sitemaps = [
         `${baseUrl}/sitemap/main.xml`
@@ -26,6 +32,7 @@ export async function GET() {
     return new Response(xml, {
         headers: {
             'Content-Type': 'application/xml',
+            'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
         },
     });
 }
