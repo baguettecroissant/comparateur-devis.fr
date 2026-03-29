@@ -40,7 +40,7 @@ import { getTopCities } from "@/lib/seo-utils";
 
 export async function generateStaticParams() {
     const categories = getAllCategories();
-    const topCities = getTopCities(200); // Top 200 villes par population
+    const topCities = getTopCities(20); // Top 200 villes par population
     
     return topCities.flatMap(city =>
         categories.map(cat => ({
