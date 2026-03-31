@@ -1,6 +1,6 @@
-export const revalidate = false; // Fully static — no ISR re-writes, invalidated only on redeploy
-// Pré-générer les top 50 villes × 155 catégories au build (7 750 pages statiques)
-// Les autres villes restent en ISR avec revalidate=false (cachées pour toujours après 1ère visite)
+export const revalidate = false; // Fully static — cached forever, invalidated only on redeploy
+// Pas de generateStaticParams : même architecture que cout-monte-escalier.fr ($0.03/jour)
+// Chaque page est générée 1 fois à la première visite, puis cachée pour toujours
 export const dynamicParams = true;
 import { notFound } from "next/navigation";
 import { getCityFromSlug, generateCityCategoryMetadata } from "@/lib/seo-utils";
@@ -36,19 +36,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return generateCityCategoryMetadata(city, category);
 }
 
-import { getTopCities } from "@/lib/seo-utils";
-
-export async function generateStaticParams() {
-    const categories = getAllCategories();
-    const topCities = getTopCities(50); // Top 50 villes — Vercel build disk limit
-    
-    return topCities.flatMap(city =>
-        categories.map(cat => ({
-            category: cat.slug,
-            city: city.slug,
-        }))
-    );
-}
 
 export default async function CityCategoryPage({ params }: Props) {
     const { category: categorySlug, city: citySlug } = await params;
