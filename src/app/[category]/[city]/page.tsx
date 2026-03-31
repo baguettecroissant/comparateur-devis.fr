@@ -1,6 +1,6 @@
 export const revalidate = false; // Fully static — no ISR re-writes, invalidated only on redeploy
-// Pré-générer les top 200 villes × 155 catégories au build (31K pages statiques)
-// Les autres villes restent en ISR dynamique avec dynamicParams = true
+// Pré-générer les top 50 villes × 155 catégories au build (7 750 pages statiques)
+// Les autres villes restent en ISR avec revalidate=false (cachées pour toujours après 1ère visite)
 export const dynamicParams = true;
 import { notFound } from "next/navigation";
 import { getCityFromSlug, generateCityCategoryMetadata } from "@/lib/seo-utils";
@@ -40,7 +40,7 @@ import { getTopCities } from "@/lib/seo-utils";
 
 export async function generateStaticParams() {
     const categories = getAllCategories();
-    const topCities = getTopCities(200); // Top 200 villes par population
+    const topCities = getTopCities(50); // Top 50 villes — Vercel build disk limit
     
     return topCities.flatMap(city =>
         categories.map(cat => ({

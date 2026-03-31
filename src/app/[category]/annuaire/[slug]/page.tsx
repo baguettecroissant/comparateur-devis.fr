@@ -1,24 +1,12 @@
 export const revalidate = false; // Fully static — no ISR re-writes, invalidated only on redeploy
 import { notFound } from "next/navigation";
-import { getCategoryFromSlug, getAllCategories } from "@/lib/categories";
+import { getCategoryFromSlug } from "@/lib/categories";
 import { getAllDepartments, getCitiesByDepartment, getDepartmentByCode, getDepartmentsByRegion } from "@/lib/cities";
 import Link from "next/link";
 import { Metadata } from "next";
 import { DepartmentCities } from "@/components/psea/DepartmentCities";
 import { Map } from "lucide-react";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
-import departmentsData from '@/lib/db/departments-infos.json';
-
-// Pré-générer toutes les pages catégorie×département au build (155 × 96 = 14 880 pages)
-export async function generateStaticParams() {
-    const categories = getAllCategories();
-    return categories.flatMap(cat =>
-        departmentsData.map(dept => ({
-            category: cat.slug,
-            slug: `${dept.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '-')}-${dept.code}`,
-        }))
-    );
-}
 
 type Props = {
     params: Promise<{ category: string, slug: string }>;
