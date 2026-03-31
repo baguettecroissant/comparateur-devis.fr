@@ -1,4 +1,4 @@
-export const revalidate = 86400; // ISR: revalidate every 24h
+export const revalidate = false; // Fully static — invalidated only on redeploy
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';

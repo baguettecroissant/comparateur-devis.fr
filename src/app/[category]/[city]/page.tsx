@@ -1,4 +1,4 @@
-export const revalidate = 86400; // ISR: revalidate every 24h
+export const revalidate = false; // Fully static — no ISR re-writes, invalidated only on redeploy
 // Pré-générer les top 200 villes × 155 catégories au build (31K pages statiques)
 // Les autres villes restent en ISR dynamique avec dynamicParams = true
 export const dynamicParams = true;
@@ -40,7 +40,7 @@ import { getTopCities } from "@/lib/seo-utils";
 
 export async function generateStaticParams() {
     const categories = getAllCategories();
-    const topCities = getTopCities(20); // Top 200 villes par population
+    const topCities = getTopCities(200); // Top 200 villes par population
     
     return topCities.flatMap(city =>
         categories.map(cat => ({

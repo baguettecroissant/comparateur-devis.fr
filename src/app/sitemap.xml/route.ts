@@ -1,7 +1,7 @@
 import { getTopCities } from '@/lib/seo-utils';
 import { getAllCategories } from '@/lib/categories';
 
-export const revalidate = 86400; // ISR: revalidate every 24h (was 1h — unnecessary)
+export const revalidate = false; // Fully static — invalidated only on redeploy
 
 const CITIES_PER_CHUNK = 250;
 
