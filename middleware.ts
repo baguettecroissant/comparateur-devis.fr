@@ -39,17 +39,10 @@ export function middleware(request: NextRequest) {
         });
     }
 
-    // For legitimate requests, add cache headers
-    const response = NextResponse.next();
-    
-    // Ensure CDN-level caching for pSEO pages
-    const pathname = request.nextUrl.pathname;
-    if (pathname.match(/^\/[^/]+\/[^/]+-\d{5}$/)) {
-        // Pattern: /category/city-postal — these are the heavy pSEO pages
-        response.headers.set('CDN-Cache-Control', 'public, s-maxage=604800');
-    }
-
-    return response;
+    // For legitimate requests, pass through without modifying headers
+    // Cache-Control headers are already set in next.config.ts headers()
+    // Adding headers here would cause Next.js to force cache-control: private
+    return NextResponse.next();
 }
 
 export const config = {
